@@ -50,7 +50,7 @@ class DestinationController extends Controller
 
             $destination->save();
 
-
+            //return view('home', ['destinations' => $destination]);
             return response()->json([
                 'State' => "success",
                 'Description' => "Un utilisateur a été crée",

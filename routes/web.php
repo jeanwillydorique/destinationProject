@@ -45,12 +45,19 @@ $router->post('/deleteuser/{id}', [
     'as' => 'adduser', 'uses' => 'UserController@deleteuser'
 ]);
 
+// CRUD Page
 
+$router->get('/CRUDPage', [
+    'as' => 'CRUDPage', 'uses' => 'ViewsController@CRUDPage'
+]);
 
 // CRUD destinations 
 
 $router->get('/getDestinations', [
-    'as' => 'getDestinations', 'uses' => 'ViewsController@getDestination'
+    'as' => 'getDestinations', 'uses' => 'ViewsController@getDestinations'
+]);
+$router->get('/getDestination/{id}', [
+    'as' => 'getDestination', 'uses' => 'ViewsController@getDestination'
 ]);
 $router->post('/addDestination', [
     'as' => 'addDestination', 'uses' => 'DestinationController@addDestination'
