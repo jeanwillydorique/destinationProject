@@ -44,3 +44,45 @@ $router->post('/updateuser/{id}', [
 $router->post('/deleteuser/{id}', [
     'as' => 'adduser', 'uses' => 'UserController@deleteuser'
 ]);
+
+
+
+// CRUD destinations 
+
+$router->get('/getDestinations', [
+    'as' => 'getDestinations', 'uses' => 'ViewsController@getDestination'
+]);
+$router->post('/addDestination', [
+    'as' => 'addDestination', 'uses' => 'DestinationController@addDestination'
+]);
+$router->post('/updateDestination/{id}', [
+    'as' => 'updateDestination', 'uses' => 'DestinationController@updateDestination'
+]);
+$router->post('/deleteDestination/{id}', [
+    'as' => 'deleteDestination', 'uses' => 'DestinationController@deleteDestination'
+]);
+
+
+// CUD Hotel
+
+$router->post('/addHotel', [
+    'as' => 'addHotel', 'uses' => 'HotelController@addHotel'
+]);
+$router->post('/updateHotel/{id}', [
+    'as' => 'updateHotel', 'uses' => 'HotelController@updateHotel'
+]);
+$router->post('/deleteHotel/{id}', [
+    'as' => 'deleteHotel', 'uses' => 'HotelController@deleteHotel'
+]);
+
+// CUD Type
+
+$router->post('/addType', [
+    'as' => 'addType', 'uses' => 'TypeController@addType'
+]);
+$router->post('/updateType/{id}', [
+    'as' => 'updateType', 'uses' => 'TypeController@updateType'
+]);
+$router->post('/deleteType/{id}', [
+    'as' => 'deleteType', 'uses' => 'TypeController@deleteType'
+]);
