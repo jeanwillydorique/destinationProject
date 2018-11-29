@@ -15,6 +15,10 @@ class UsersTableSeeder extends Seeder
             'name' => "Emmanuel Macron",
             'address' => "Palais de l'Élysée, 55 rue du Faubourg-Saint-Honoré, 75008 Paris",
             'email' => "benallarevient@gouv.fr",
+            'type' => "Magicien",
+            'content' => "Il fait disparaitre avec sa magie, l'Egalité",
+            'ATK' => 1200,
+            'DEF' => 1300,
             'role_id' => 2,
             'avatar' => "https://img.20mn.fr/_TFGW04CRlW95nntLDuVlw/310x190_emmanuel-macron-6-septembre-2018-luxembourg.jpg",
         ]);
@@ -22,6 +26,10 @@ class UsersTableSeeder extends Seeder
             'name' => "Jean-Luc Mélenchon",
             'address' => "6 bis, rue des Anglais 91300 Massy ou bien à 43, rue de Dunkerque, 75010 Paris",
             'email' => "jlm@lafranceinsoumise.fr",
+            'type' => "Guerrier",
+            'content' => "Attaque sans relache sa cible",
+            'ATK' => 600,
+            'DEF' => 2000,
             'role_id' => 3,
             'avatar' => "https://cdnfr2.img.sputniknews.com/images/103854/84/1038548483.jpg",
         ]);
@@ -29,8 +37,14 @@ class UsersTableSeeder extends Seeder
             'name' => "Marine Le Pen",
             'address' => "76/78 rue des Suisses – 92 000 – Nanterre",
             'email' => "aurevoirleszarabe@marine.fr",
+            'type' => "Dragon",
+            'content' => "N'arrete pas de vouloir expulser l'ennemi",
+            'ATK' => 2000,
+            'DEF' => 1000,
             'role_id' => 1,
             'avatar' => "https://pbs.twimg.com/profile_images/1057222036362354688/JpkIqkst_400x400.jpg",
         ]);
     }
 }
+
+

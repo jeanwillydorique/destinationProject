@@ -32,3 +32,15 @@ $router->get('/getusers', [
 $router->get('/getuser/{id}', [
     'as' => 'user', 'uses' => 'UserController@getUser'
 ]);
+
+$router->post('/adduser', [
+    'as' => 'adduser', 'uses' => 'UserController@adduser'
+]);
+
+$router->post('/updateuser/{id}', [
+    'as' => 'adduser', 'uses' => 'UserController@updateuser'
+]);
+
+$router->post('/deleteuser/{id}', [
+    'as' => 'adduser', 'uses' => 'UserController@deleteuser'
+]);

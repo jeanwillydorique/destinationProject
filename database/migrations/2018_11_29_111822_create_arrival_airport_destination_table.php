@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHotelsTable extends Migration
+class CreateArrivalAirportDestinationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateHotelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hotels', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('logo');
-            $table->timestamps();
+        Schema::create('arrival_airport_destination', function (Blueprint $table) {
+            $table->integer('arrival_airport_id');
+            $table->integer('destination_id');
         });
     }
 
@@ -28,6 +26,6 @@ class CreateHotelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hotels');
+        Schema::dropIfExists('arrival_airport_destination');
     }
 }
