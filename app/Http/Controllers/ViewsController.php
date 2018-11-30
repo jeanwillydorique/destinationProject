@@ -72,24 +72,29 @@ class ViewsController extends Controller
         $destinations = Destination::All();
         $arrivalairports = ArrivalAirport::All();
         $departureairports = DepartureAirport::All();
-        $hotel = Hotel::All();
-        $company = Company::All();
-        $type = Type::All();
+        $hotels = Hotel::All();
+        $companies = Company::All();
+        $types = Type::All();
 
 
         if ($destinations) {
                     
-            return view('CRUDPage', [
-                'destination' => $destinations,
+            // return view('CRUDPage', [
+            //     'destinations' => $destinations,
+            //     'arrivalairports' => $arrivalairports,
+            //     'departureairports' => $departureairports,
+            //     'hotels' => $hotels,
+            //     'companies' => $companies,
+            //     'types' => $types,
+            //     ]);
+            return response()->json([
+             'destinations' => $destinations,
                 'arrivalairports' => $arrivalairports,
                 'departureairports' => $departureairports,
-                'hotel' => $hotel,
-                'company' => $company,
-                'type' => $type,
+                'hotels' => $hotels,
+                'companies' => $companies,
+                'types' => $types,
                 ]);
-            // return response()->json([
-            //     'results' => $destinations,
-            //     ]);
 
         } else {
             

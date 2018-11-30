@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Destination extends Model
 {
     //
+     # This property!
+     protected $fillable = ['body'];
+
+     // ...
     public function Hotel()
     {
         return $this->belongsTo('App\Hotel');

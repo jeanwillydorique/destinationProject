@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Hotel as Hotel;
+use App\Type as Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 
-class HotelController extends Controller
+class TypeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,15 +18,14 @@ class HotelController extends Controller
         //
     }
 
-    public function addHotel(Request $request)
+    public function addType(Request $request)
     {
 
-        $hotel = new Hotel;
+        $type = new Type;
 
 
         $validator = Validator::make($request->all(),[
-            'name' => 'required|string|',
-            'logo' => 'required|string|',
+            'content' => 'required|string|',
             // 'address' => 'required|string|',
             // 'role_id' => 'required|integer|'
         ]);
@@ -39,58 +38,54 @@ class HotelController extends Controller
                 ]);
         } else {
                 
-            $hotel->name = $request->name;
-            $hotel->logo = $request->logo;
+            $type->content = $request->content;
 
-            $hotel->save();
+            $type->save();
 
 
             return response()->json([
                 'State' => "success",
-                'Description' => "Un hotel a été crée",
+                'Description' => "Un type a été crée",
                 ]);
         }
 
     }
 
-    public function updateHotel(Request $request, $id)
+    public function updateType(Request $request, $id)
     {
-        $hotel = Hotel::where('id', $id)->get()->first();
+        $type = Type::where('id', $id)->get()->first();
 
-        if ($hotel) {
+        if ($type) {
                 
-            if ($request->input('name') != " ") {
-                $hotel->name = $request->name;
-            }
-            if ($request->input('img') != " ") {
-                $hotel->logo = $request->logo;
+            if ($request->input('content') != " ") {
+                $type->content = $request->content;
             }
 
-            $hotel->save();
+            $type->save();
 
 
             return response()->json([
                 'State' => "success",
-                'Description' => "Un hotel a été modifié",
+                'Description' => "Un type a été modifié",
                 ]);
 
         } else {
             
             return response()->json([
                 'State' => "error",
-                'Description' => "cet hotel n'existe pas",
+                'Description' => "ce type n'existe pas",
                 ]);
         }
 
     }
 
-    public function deleteHotel($id)
+    public function deleteType($id)
     {
-        $hotel = Hotel::where('id', $id)->get()->first();
-        $hotel->delete();
+        $type = Type::where('id', $id)->get()->first();
+        $type->delete();
         return response()->json([
                 'State' => "success",
-                'Description' => "Un hotel a été supprimé",
+                'Description' => "Un type a été supprimé",
                 ]);
     }
 

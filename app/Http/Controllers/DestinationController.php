@@ -27,8 +27,12 @@ class DestinationController extends Controller
         $validator = Validator::make($request->all(),[
             'name' => 'required|string|',
             'country' => 'required|string|',
-            // 'address' => 'required|string|',
-            // 'role_id' => 'required|integer|'
+            'img' => 'required|string|',
+            'type_id' => 'required|integer|',
+            'departure_airport_id' => 'required|integer|',
+            'arrival_airport_id' => 'required|integer|',
+            'company_id' => 'required|integer|',
+            'hotel_id' => 'required|integer|',
         ]);
 
         if($validator->fails()){
