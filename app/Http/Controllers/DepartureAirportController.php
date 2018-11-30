@@ -1,13 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-use App\Company as Company;
+use App\DepartureAirport as DepartureAirport;
 
-class CompanyController extends Controller
+class DepartureAirportController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -19,12 +18,13 @@ class CompanyController extends Controller
         //
     }
 
-    public function addCompany(Request $request)
+    public function addDepartureAirport(Request $request)
     {
-      $company = new Company;
+      $departureAirport = new DepartureAirport;
 
       $validator = Validator::make($request->all(),[
             'name' => 'required|string|max:30|min:2',
+            'code' => 'required|string|max:3|min:3',
       ]);
 
       if ($validator->fails()) {
@@ -33,19 +33,19 @@ class CompanyController extends Controller
                 'response' => $validator->errors(),
             ]);
       }else {
-        $company->name = $request->input('name');
-        $company->logo = $request->input('logo');
+        $departureAirport->name = $request->input('name');
+        $departureAirport->code = $request->input('code');
+        $departureAirport->logo = $request->input('logo');
 
-        $company->save();
+        $departureAirport->save();
       }
     }
-
-    public function deleteCompany(Request $request, $id)
+    public function deleteDepartureAirport(Request $request, $id)
     {
-      $company = Company::where('id', $id)->get()->first();
+      $departureAirport = DepartureAirport::where('id', $id)->get()->first();
 
-      if ($company) {
-        $company->delete();
+      if ($departureAirport) {
+        $departureAirport->delete();
         return response()->json([
               'state' => 'success',
               'response'=> 'Delete Ok',
@@ -53,20 +53,21 @@ class CompanyController extends Controller
       }else {
         return response()->json([
             'state' => 'error',
-            'response' => 'Company not found',
+            'response' => 'Airport not found',
           ]);
       }
     }
 
-    public function updateCompany(Request $request, $id)
+    public function updateDepartureAirport(Request $request, $id)
     {
-      $company = Company::where('id', $id)->get()->first();
+      $departureAirport = DepartureAirport::where('id', $id)->get()->first();
 
       $validator = Validator::make($request->all(),[
             'name' => 'required|string|max:30|min:2',
+            'code' => 'required|string|max:3|min:3',
       ]);
 
-      if ($company) {
+      if ($departureAirport) {
 
         if ($validator->fails()) {
           return response()->json([
@@ -75,9 +76,10 @@ class CompanyController extends Controller
               ]);
         }else {
           if ($request->input('name') != "") {
-              $company->name = $request->input('name');
+              $departureAirport->name = $request->input('name');
+              $departureAirport->code = $request->input('code');
           }
-          $company->save();
+          $departureAirport->save();
               return response()->json([
                 'state' => 'success',
                 'response'=> 'Modification done',
@@ -86,7 +88,7 @@ class CompanyController extends Controller
       }else {
         return response()->json([
                 'state' => 'error',
-                'response' => 'Company not found',
+                'response' => 'Airport not found',
             ]);
       }
     }

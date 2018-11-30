@@ -12,40 +12,41 @@
 */
 
 // Ajouter un aéroport de départ
-$router->post('/addDepartureAirport /{id}', [
+$router->post('/addDepartureAirport', [
     'as' => 'addDepartureAirport',
-    'uses' => 'AirportController@addDepartureAirport'
+    'uses' => 'DepartureAirportController@addDepartureAirport'
 ]);
 
 // Supprimer un aéroport de départ
-$router->post('/deleteDepartureAirport /{id}', [
+$router->post('/deleteDepartureAirport/{id}', [
     'as' => 'deleteDepartureAirport',
-    'uses' => 'AirportController@deleteDepartureAirport'
+    'uses' => 'DepartureAirportController@deleteDepartureAirport'
 ]);
 
 // Update un aéroport de départ
-$router->post('/updateDepartureAirport /{id}', [
+$router->post('/updateDepartureAirport/{id}', [
     'as' => 'updateDepartureAirport',
-    'uses' => 'AirportController@updateDepartureAirport'
+    'uses' => 'DepartureAirportController@updateDepartureAirport'
 ]);
 
+///////////////////////////////////////////////////////////////////////
 
 // Ajouter un aéroport d'arrivé
-$router->post('/addArrivalAirport /{id}', [
+$router->post('/addArrivalAirport', [
     'as' => 'addArrivalAirport',
-    'uses' => 'AirportController@addArrivalAirport'
+    'uses' => 'ArrivalAirportController@addArrivalAirport'
 ]);
 
 // Supprimer un Aéroport d'arrivé
-$router->post('/deleteArrivalAirport /{id}', [
+$router->post('/deleteArrivalAirport/{id}', [
     'as' => 'deleteArrivalAirport',
-    'uses' => 'AirportController@deleteArrivalAirport'
+    'uses' => 'ArrivalAirportController@deleteArrivalAirport'
 ]);
 
 // Update un aéroport d'arrivé
-$router->post('/updateArrivalAirport /{id}', [
+$router->post('/updateArrivalAirport/{id}', [
     'as' => 'updateArrivalAirport',
-    'uses' => 'AirportController@updateArrivalAirport'
+    'uses' => 'ArrivalAirportController@updateArrivalAirport'
 ]);
 ///////////////////////////////////////////////////////////////:
 
