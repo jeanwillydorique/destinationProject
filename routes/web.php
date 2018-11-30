@@ -11,34 +11,54 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return "Bonjour toi !!";
-});
-
-$router->get('/toutcequetuveux', function () use ($router) {
-    return "AHAHAHAHAHAH!";
-});
-
-// $router->get('/user', 'UserController@index');
-
-$router->get('/user', [
-    'as' => 'user', 'uses' => 'UserController@index'
+// Ajouter un aéroport de départ
+$router->post('/addDepartureAirport', [
+    'as' => 'addDepartureAirport',
+    'uses' => 'DepartureAirportController@addDepartureAirport'
 ]);
 
-$router->get('/getusers', [
-    'as' => 'user', 'uses' => 'UserController@getUsers'
+// Supprimer un aéroport de départ
+$router->post('/deleteDepartureAirport/{id}', [
+    'as' => 'deleteDepartureAirport',
+    'uses' => 'DepartureAirportController@deleteDepartureAirport'
 ]);
 
-$router->get('/getuser/{id}', [
-    'as' => 'user', 'uses' => 'UserController@getUser'
+// Update un aéroport de départ
+$router->post('/updateDepartureAirport/{id}', [
+    'as' => 'updateDepartureAirport',
+    'uses' => 'DepartureAirportController@updateDepartureAirport'
 ]);
 
-$router->post('/adduser', [
-    'as' => 'adduser', 'uses' => 'UserController@adduser'
+///////////////////////////////////////////////////////////////////////
+
+// Ajouter un aéroport d'arrivé
+$router->post('/addArrivalAirport', [
+    'as' => 'addArrivalAirport',
+    'uses' => 'ArrivalAirportController@addArrivalAirport'
 ]);
 
-$router->post('/updateuser/{id}', [
-    'as' => 'adduser', 'uses' => 'UserController@updateuser'
+// Supprimer un Aéroport d'arrivé
+$router->post('/deleteArrivalAirport/{id}', [
+    'as' => 'deleteArrivalAirport',
+    'uses' => 'ArrivalAirportController@deleteArrivalAirport'
+]);
+
+// Update un aéroport d'arrivé
+$router->post('/updateArrivalAirport/{id}', [
+    'as' => 'updateArrivalAirport',
+    'uses' => 'ArrivalAirportController@updateArrivalAirport'
+]);
+///////////////////////////////////////////////////////////////:
+
+$router->post('/addCompany', [
+    'as' => 'addCompany',
+    'uses' => 'CompanyController@addCompany'
+]);
+
+// Supprimer un aéroport de départ
+$router->post('/deleteCompany/{id}', [
+    'as' => 'deleteCompany',
+    'uses' => 'CompanyController@deleteCompany'
 ]);
 
 $router->post('/deleteuser/{id}', [
@@ -92,4 +112,10 @@ $router->post('/updateType/{id}', [
 ]);
 $router->post('/deleteType/{id}', [
     'as' => 'deleteType', 'uses' => 'TypeController@deleteType'
+]);
+
+// Update un aéroport de départ
+$router->post('/updateCompany/{id}', [
+    'as' => 'updateCompany',
+    'uses' => 'CompanyController@updateCompany'
 ]);
